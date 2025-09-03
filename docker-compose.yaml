@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:15
+    container_name: voucherland_upd_db
+    restart: always
+    environment:
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=test123
+      - POSTGRES_DB=vouchland_db
+    ports:
+      - 5432:5432
+    volumes: 
+      - db-data:/var/lib/postgresql/data
+
+  api:
+    build: ./backend
+    container_name: voucherland_upd_api
+    command: ["npm", "run", "start:dev"]
+    volumes: 
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports: 
+      - 3001:3001
+    environment:
+      - DATABASE_URL=postgres://test_user:test123@db:5432/vouchland_db
+    depends_on:
+      - db
+
+  app:
+    build: ./frontend
+    container_name: voucherland_upd_app
+    command: ["npm", "run", "start"]
+    volumes: 
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports: 
+      - 5173:5173
+    stdin_open: true
+    tty: true
+
+volumes: 
+  db-data:

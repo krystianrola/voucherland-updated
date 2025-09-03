@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()
 export class UsersService {
+  constructor(private sequelize: Sequelize) {}
+
   create(createUserDto: CreateUserDto) {
     const user: CreateUserDto = {
-      // is_admin: createUserDto.is_admin,
       ...createUserDto,
     };
 
