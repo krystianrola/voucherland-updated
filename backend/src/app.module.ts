@@ -3,18 +3,23 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { VouchersModule } from './vouchers/vouchers.module';
+import { StoresModule } from './stores/stores.module';
 
 @Module({
   imports: [
     UsersModule,
+    VouchersModule,
+    StoresModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: 'localhost',
+      host: 'db',
       port: 5432,
-      username: 'admin',
-      password: 'admin123',
-      database: 'test',
-      models: [],
+      username: 'test_user',
+      password: 'test123',
+      database: 'vouchland_db',
+      autoLoadModels: true,
+      synchronize: true,
     }),
   ],
   controllers: [AppController],
