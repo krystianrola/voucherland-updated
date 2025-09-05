@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { Sequelize } from 'sequelize-typescript';
 import { UserSeeder } from './database/seeders/user.seeder';
 
+const PORT = process.env.PORT ?? 3000;
+
 async function waitForDB(
   sequelize: Sequelize,
   retries: number = 5,
@@ -43,6 +45,10 @@ async function bootstrap() {
     return;
   }
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
-bootstrap();
+
+bootstrap().catch((error) => {
+  console.error('Bootstrap failed:', error);
+  process.exit(1);
+});

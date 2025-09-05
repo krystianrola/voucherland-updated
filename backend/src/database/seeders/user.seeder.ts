@@ -7,18 +7,17 @@ export class UserSeeder {
 
     const users: UserCreationAttr[] = [
       {
-        firstname: 'test',
+        firstname: 'admin',
         lastname: 'user',
-        email: 'test.user@voucherland.com',
-        password: 'test123',
+        email: 'admin.user@voucherland.com',
+        password: 'admin123',
         is_admin: true,
       },
       {
-        firstname: 'test2',
+        firstname: 'regular',
         lastname: 'user',
-        email: 'test2.user@voucherland.com',
-        password: 'test123',
-        is_admin: false,
+        email: 'regular.user@voucherland.com',
+        password: 'user123',
       },
     ];
 

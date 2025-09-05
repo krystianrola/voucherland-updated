@@ -1,16 +1,19 @@
 import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-import { SequelizeModule } from '@nestjs/sequelize';
 import { VouchersModule } from './vouchers/vouchers.module';
 import { StoresModule } from './stores/stores.module';
+import { ArticlesModule } from './articles/articles.module';
 
 @Module({
   imports: [
     UsersModule,
     VouchersModule,
     StoresModule,
+    ArticlesModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: 'db',

@@ -5,7 +5,7 @@ export interface UserCreationAttr {
   lastname: string;
   email: string;
   password: string;
-  is_admin: boolean;
+  is_admin?: boolean;
 }
 
 @Table
