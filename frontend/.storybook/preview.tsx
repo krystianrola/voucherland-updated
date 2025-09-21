@@ -15,6 +15,15 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: "todo",
     },
+    backgrounds: {
+      options: {
+        light: { name: "light", value: " #e9ecef" },
+        dark: { name: "dark", value: "#1d1d1d" },
+      },
+    },
+  },
+  initialGlobals: {
+    background: { value: "light" },
   },
   decorators: [
     (Story) => (
