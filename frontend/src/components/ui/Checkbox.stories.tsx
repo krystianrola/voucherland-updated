@@ -13,4 +13,9 @@ export const Checkbox: StoryObj<typeof CheckboxComponent> = {
     id: "remember-me",
     text: "checkbox test here",
   },
+  globals: {
+    backgrounds: {
+      value: "dark",
+    },
+  },
 };
