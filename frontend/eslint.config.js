@@ -29,6 +29,7 @@ export default tseslint.config([
           allowInterfaces: "always"
         }
       ],
+      "@typescript-eslint/no-unused-vars": "warn"
     }
   },
 ], storybook.configs["flat/recommended"]);
