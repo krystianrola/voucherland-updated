@@ -32,6 +32,7 @@ const preview: Preview = {
       </div>
     ),
   ],
+  tags: ["autodocs"],
 };
 
 export default preview;
