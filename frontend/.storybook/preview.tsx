@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
+import { MemoryRouter } from "react-router-dom";
 
 const preview: Preview = {
   parameters: {
@@ -28,7 +29,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <div style={{ maxWidth: "1440px", padding: "20px" }}>
-        <Story />
+        <MemoryRouter>
+          <Story />
+        </MemoryRouter>
       </div>
     ),
   ],

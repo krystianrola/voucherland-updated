@@ -9,5 +9,7 @@ const meta: Meta<typeof IconComponent> = {
 export default meta;
 
 export const Icon: StoryObj<typeof IconComponent> = {
-  args: {},
+  args: {
+    name: "delhaize",
+  },
 };
