@@ -5,6 +5,17 @@ import { DiscountTypes } from "../../types";
 const meta: Meta<typeof DiscountComponent> = {
   component: DiscountComponent,
   title: "Blocks/Discount",
+  argTypes: {
+    type: {
+      control: "select",
+      options: [
+        DiscountTypes.Fixed,
+        DiscountTypes.Bundle,
+        DiscountTypes.BuyOneGetOne,
+        DiscountTypes.Percentage,
+      ],
+    },
+  },
 };
 export default meta;
 
@@ -32,6 +43,13 @@ export const DiscountBuyOneGetOne: StoryObj<typeof DiscountComponent> = {
 export const DiscountBundle: StoryObj<typeof DiscountComponent> = {
   args: {
     type: DiscountTypes.Bundle,
+    text: "2 for 5€",
+  },
+};
+
+export const DiscountInvalidType: StoryObj<typeof DiscountComponent> = {
+  args: {
+    type: "invalid type",
     text: "2 for 5€",
   },
 };
