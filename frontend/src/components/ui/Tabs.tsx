@@ -52,6 +52,7 @@ const TabsTrigger: FC<TabsTriggerProps> = ({ value, color = "block", className, 
       aria-selected={ctx.activeTab === value}
       onClick={() => ctx.setActiveTab(value)}
       data-active={ctx.activeTab === value}
+      data-testid={`tab-trigger-${value}`}
       className={`group list-none tab p-2 whitespace-nowrap text-sm leading-6 font-medium cursor-pointer select-none border-b border-solid border-block text-block data-[active=true]:text-${color} data-[active=true]:tab-active data-[active=true]:after:bg-${color} data-[active=false]:tab-inactive data-[active=false]:after:bg-${color} ${className}`}
     >
       <span className="flex justify-center items-center gap-2 px-5 py-1.5 rounded-md outline-none border-none group-hover:bg-block3 ">

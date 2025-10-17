@@ -7,6 +7,7 @@ interface TextUnderlinedProps extends BaseHTMLAttributes<HTMLSpanElement> {
 const TextUnderlined: FC<TextUnderlinedProps> = ({ text, className = "" }) => {
   return (
     <span
+      data-testid="text-underlined"
       className={`relative after:animate-line after:bg-main after:w-full after:h-0.5 after:content-[''] after:absolute after:-bottom-[10%] after:left-0 rounded-sm ${className}`}
     >
       {text}

@@ -6,7 +6,7 @@ interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const Link: FC<LinkProps> = ({ text, ...props }) => {
   return (
-    <a className="text-xs text-text" {...props}>
+    <a className="text-xs text-text" data-testid="link" {...props}>
       {text}
     </a>
   );
