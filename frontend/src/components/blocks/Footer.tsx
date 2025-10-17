@@ -19,7 +19,7 @@ const FooterGroup: FC<FooterGroupProps> = ({ title, children, className = "", ..
 
 const Footer: FC = () => {
   return (
-    <footer className="max-w-[1440px] px-3 py-12 bg-dark border-t border-solid border-main  lg:px-6 xxl:px-0 xxl:m-auto">
+    <footer className="w-full max-w-[1440px] px-3 py-12 bg-dark border-t border-solid border-main  lg:px-6 xxl:px-0 xxl:m-auto">
       <div className="flex flex-col">
         {/* TOP */}
         <div className="grid gap-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6">

@@ -18,7 +18,7 @@ describe("Discount Component", () => {
     expect(screen.getByTestId(TEST_ID_DISCOUNT)).toHaveTextContent(text);
   });
 
-  test("Renders correct test after component update", () => {
+  test("Renders correct text after component update", () => {
     const { rerender } = render(<Discount type={DiscountTypes.Percentage} text={"old discount"} />);
     rerender(<Discount type={DiscountTypes.Percentage} text={"new discount"} />);
 

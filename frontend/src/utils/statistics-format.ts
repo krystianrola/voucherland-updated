@@ -18,3 +18,8 @@ export function formatStatistic(value: number): StatisticFormatReturn {
     unit: units[order - 1],
   };
 }
+
+export function isPositive(value: number | string) {
+  const num = Number(value);
+  return !isNaN(num) && num > 0;
+}
