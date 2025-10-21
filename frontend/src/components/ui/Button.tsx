@@ -18,11 +18,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
 }
 
-const Button: FC<ButtonProps> = ({ text, variant, ...props }) => {
+const Button: FC<ButtonProps> = ({ text, variant, className, ...props }) => {
   return (
     <button
       {...props}
-      className={`flex flex-row gap-3 justify-center wrap w-fit p-1.5 text-[1rem] font-semibold cursor-pointer outline-none rounded-md border border-solid ${ButtonVariants[variant]}`}
+      className={`flex flex-row gap-3 justify-center items-center text-center whitespace-nowrap w-fit p-1.5 text-[1rem] font-semibold cursor-pointer outline-none rounded-md border border-solid ${ButtonVariants[variant]} ${className}`}
     >
       {variant == ButtonVariant.Tertiary && <FaLongArrowAltLeft className="w-5 h-5 self-center" />}
       {text}

@@ -89,6 +89,8 @@
 }
 
 body {
+  position: relative;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;

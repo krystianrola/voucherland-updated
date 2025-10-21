@@ -9,7 +9,7 @@ const NotFound: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Page className="border">
+    <Page className="">
       <div className="flex flex-col justify-center items-center ">
         <h1 className="text-8xl leading-20 text-dark font-bold font-mono">404</h1>
         <p className="text-lg text-description font-semibold">Page Not Found</p>

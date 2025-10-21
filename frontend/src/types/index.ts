@@ -1,3 +1,5 @@
+import ROUTE from "../constants/routes";
+
 export const ButtonVariant = {
   Primary: "primary",
   Secondary: "secondary",
@@ -14,3 +16,5 @@ export const DiscountTypes = {
   Bundle: "bundle", // 2 for xEUR
 };
 export type TDiscountType = (typeof DiscountTypes)[keyof typeof DiscountTypes];
+
+export type TRoute = (typeof ROUTE)[keyof typeof ROUTE];
