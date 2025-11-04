@@ -1,4 +1,4 @@
-import type { FC, JSX } from "react";
+import type { BaseHTMLAttributes, FC, JSX } from "react";
 import type { TDiscountType } from "../../types";
 
 //icons
@@ -23,18 +23,18 @@ const discount_type: Record<TDiscountType, JSX.Element> = {
   ),
 };
 
-interface DiscountProps {
+interface DiscountProps extends BaseHTMLAttributes<HTMLDivElement> {
   type: TDiscountType;
   text: string;
 }
 
-const Discount: FC<DiscountProps> = ({ type, text }) => {
+const Discount: FC<DiscountProps> = ({ type, text, className }) => {
   if (!(type in discount_type)) throw new Error(`Invalid discount type: ${type}`);
 
   return (
     <div
       data-testid="discount"
-      className="w-fit flex justify-center items-center gap-3 py-1.5 px-2.5 rounded-md bg-main text-dark text-tiny font-semibold select-none"
+      className={`w-fit flex justify-center items-center gap-3 py-1.5 px-2.5 rounded-md bg-main text-dark text-tiny font-semibold select-none ${className}`}
     >
       {discount_type[type]}
       {text}

@@ -7,7 +7,6 @@ export const ButtonVariant = {
   Create: "create",
   Delete: "delete",
 };
-export type TButtonVariant = (typeof ButtonVariant)[keyof typeof ButtonVariant];
 
 export const DiscountTypes = {
   Percentage: "percentage", //-20%
@@ -15,6 +14,22 @@ export const DiscountTypes = {
   BuyOneGetOne: "bogo", // 2+1
   Bundle: "bundle", // 2 for xEUR
 };
-export type TDiscountType = (typeof DiscountTypes)[keyof typeof DiscountTypes];
 
+export interface Voucher {
+  id?: number;
+  name: string;
+  description: string;
+  product_image?: string;
+  store_image?: string;
+  discount?: string;
+  discount_type?: string;
+  tag?: string;
+  downloads?: number;
+  expiry?: string;
+  status?: string;
+}
+
+export type TButtonVariant = (typeof ButtonVariant)[keyof typeof ButtonVariant];
+export type TDiscountType = (typeof DiscountTypes)[keyof typeof DiscountTypes];
 export type TRoute = (typeof ROUTE)[keyof typeof ROUTE];
+// export type TVoucher = (typeof Voucher)[keyof typeof Voucher];
