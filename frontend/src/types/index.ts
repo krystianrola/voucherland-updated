@@ -15,7 +15,7 @@ export const DiscountTypes = {
   Bundle: "bundle", // 2 for xEUR
 };
 
-export interface Voucher {
+export type Voucher = {
   id?: number;
   name: string;
   description: string;
@@ -27,9 +27,16 @@ export interface Voucher {
   downloads?: number;
   expiry?: string;
   status?: string;
-}
+};
 
 export type TButtonVariant = (typeof ButtonVariant)[keyof typeof ButtonVariant];
 export type TDiscountType = (typeof DiscountTypes)[keyof typeof DiscountTypes];
 export type TRoute = (typeof ROUTE)[keyof typeof ROUTE];
-// export type TVoucher = (typeof Voucher)[keyof typeof Voucher];
+
+export type User = {
+  id?: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_admin: boolean;
+};

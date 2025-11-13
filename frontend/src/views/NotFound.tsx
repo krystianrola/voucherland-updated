@@ -4,13 +4,14 @@ import { Button } from "../components/ui/Button";
 import { ButtonVariant } from "../types";
 import { useNavigate } from "react-router";
 import ROUTE from "../constants/routes";
+import { HomeHero } from "../components/blocks/HomeHero";
 
 const NotFound: FC = () => {
   const navigate = useNavigate();
 
   return (
     <Page className="">
-      <div className="flex flex-col justify-center items-center ">
+      {/* <div className="flex flex-col justify-center items-center ">
         <h1 className="text-8xl leading-20 text-dark font-bold font-mono">404</h1>
         <p className="text-lg text-description font-semibold">Page Not Found</p>
       </div>
@@ -22,7 +23,10 @@ const NotFound: FC = () => {
         variant={ButtonVariant.Primary}
         text="Back to Homepage"
         onClick={() => navigate(ROUTE.HOME)}
-      />
+      /> */}
+
+      <HomeHero />
+      <div></div>
     </Page>
   );
 };

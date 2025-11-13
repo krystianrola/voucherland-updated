@@ -4,18 +4,29 @@ import { Homepage } from "./views/Homepage";
 import { Vouchers } from "./views/Vouchers";
 import ProtectedRoute from "./router/ProtectedRoute";
 import { NotFound } from "./views/NotFound";
-
-// function App() {
-//   return (
-//     <Routes>
-//       <Route path={ROUTE.HOME} element={<Homepage />} />
-//       <Route path={ROUTE.VOUCHERS} element={<ProtectedRoute component={Vouchers} />} />
-//     </Routes>
-//   );
-// }
+import { useEffect } from "react";
+import useVouchers from "./hooks/useVouchers";
 
 function App() {
-  return <NotFound />;
+  const vouchers = useVouchers();
+
+  useEffect(() => {
+    vouchers.fetch();
+  }, [vouchers]);
+
+  return (
+    <div>
+      {!vouchers.loading && vouchers.data ? (
+        <div>loading...</div>
+      ) : (
+        <div>
+          {vouchers.data.map((voucher) => (
+            <div>{voucher.name}</div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default App;

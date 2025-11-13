@@ -3,7 +3,6 @@ import { createContext, useContext, useEffect, useState, type FC, type ReactNode
 interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
-  userRole?: "admin" | "user";
   login: () => Promise<void>;
   logout: () => void;
 }
@@ -17,20 +16,6 @@ const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   useEffect(() => {
     // On mount, check token validity with server
-    async function checkAuth() {
-      try {
-        // pretend fetch to validate token
-        const res = await fetch("/api/auth/validate");
-        const data = await res.json();
-        setIsAuthenticated(data.ok);
-        setUserRole(data.role);
-      } catch {
-        setIsAuthenticated(false);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    checkAuth();
   }, []);
 
   const login = async () => {
@@ -46,7 +31,7 @@ const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, isLoading, userRole, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

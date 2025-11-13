@@ -1,16 +1,16 @@
-import axios, { type AxiosInstance } from "axios";
+import { User, Voucher } from "../../types";
+import { VoucherResponse } from "../../types/api";
+import { baseInstance } from "./instance";
 
-export async function getAccessToken() {}
+function getVouchers() {
+  return baseInstance.get<VoucherResponse>("/vouchers/public");
+}
 
-const instance: AxiosInstance = axios.create({
-  baseURL: "http://127.0.0.1:8000/",
-  responseType: "json",
-  headers: {
-    accept: "application/json",
-    "Content-Type": "application/json",
-  },
-});
+function register(user: User) {
+  return baseInstance.post<User>("/register", { data: user });
+}
 
 export const api = {
-  getAccessToken,
+  getVouchers,
+  register,
 };
