@@ -10,9 +10,10 @@ const Page: FC<PageProps> = ({ children, className, ...props }) => {
   return (
     <>
       <Header />
-      <main className={`${className} min-h-dvh w-full max-w-[1440px] m-auto`} {...props}>
+      {/* <main className={`${className} min-h-dvh w-full max-w-[1440px] m-auto`} {...props}>
         {children}
-      </main>
+      </main> */}
+      <main>{children}</main>
       <Footer />
     </>
   );

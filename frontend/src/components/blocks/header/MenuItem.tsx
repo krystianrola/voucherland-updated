@@ -9,7 +9,7 @@ interface MenuItemProps {
 
 const MenuItem: FC<MenuItemProps> = ({ text, route }) => {
   return (
-    <li className="relative text-base leading-6 text-dark font-semibold ">
+    <li className="relative text-base leading-6 text-dark lg:text-light font-semibold ">
       <NavLink
         to={route}
         className={({ isActive }) =>

@@ -5,32 +5,50 @@ import { useNavigate } from "react-router";
 import ROUTE from "../../../constants/routes";
 import { Menu } from "../Menu";
 import ActionButtons from "./ActionButtons";
+import useScrollBlock from "../../../hooks/useScrollBlock";
 
 const Header: FC = () => {
   const navigate = useNavigate();
-  const [openMenu, setopenMenu] = useState<boolean>(false);
+  const [disableScroll] = useScrollBlock();
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
-    <header className="w-full max-w-[1440px] sticky top-0 flex p-1 lg:p-3 border-b border-solid border-main backdrop-blur-2xl">
-      <div className="w-full flex justify-between items-center gap-2 lg:w-auto">
-        <h1
-          className="text-xl font-bold lg:text-2xl hover:cursor-pointer"
-          onClick={() => navigate(ROUTE.HOME)}
-        >
-          voucherland.
-        </h1>
-        <LuChartNoAxesGantt className="w-6 h-6 lg:hidden" onClick={() => setopenMenu(true)} />
+    <header className="sticky z-40 w-full h-13 lg:h-16 top-0 flex p-3 border-b border-solid border-main bg-dark">
+      <div className="w-full max-w-[1440px] m-auto flex justify-between ">
+        <div className="w-full flex justify-between items-center gap-2 lg:w-auto">
+          <h1
+            className="text-xl font-bold cursor-pointer text-light lg:text-2xl "
+            onClick={() => navigate(ROUTE.HOME)}
+          >
+            Voucherland.
+          </h1>
+          <LuChartNoAxesGantt
+            className="w-6 h-6 text-light lg:hidden"
+            onClick={() => {
+              setOpenMenu(true);
+              disableScroll(true);
+            }}
+          />
+        </div>
+
+        <nav className="hidden lg:w-full lg:block lg:max-w-[1220px]">
+          <Menu />
+        </nav>
+
+        <div className="hidden lg:block">
+          <ActionButtons isLoggedIn={false} onClose={() => setOpenMenu(true)} />
+        </div>
       </div>
 
-      <nav className="hidden  lg:w-full lg:block lg:max-w-[1220px]">
-        <Menu />
-      </nav>
-
-      <div className="hidden lg:block">
-        <ActionButtons isLoggedIn={false} onClose={() => setopenMenu(true)} />
-      </div>
-
-      {openMenu && <MobileHeader onClose={() => setopenMenu(false)} isLoggedIn={true} />}
+      {openMenu && (
+        <MobileHeader
+          onClose={() => {
+            setOpenMenu(false);
+            disableScroll(false);
+          }}
+          isLoggedIn={true}
+        />
+      )}
     </header>
   );
 };

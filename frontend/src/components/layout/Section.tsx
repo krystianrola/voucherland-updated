@@ -2,13 +2,14 @@ import type { BaseHTMLAttributes, FC, JSX } from "react";
 
 interface SectionProps extends BaseHTMLAttributes<HTMLDivElement> {
   dark?: true;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
-const Section: FC<SectionProps> = ({ dark = false, children }) => {
+const Section: FC<SectionProps> = ({ dark = false, children, className }) => {
   return (
-    <section className={`${dark ? "bg-dark" : "bg-light"}`}>
-      <div className="max-w-7xl m-auto">{children}</div>
+    <section className={`max-w-[1440px] ${dark ? "bg-dark" : "bg-light"} ${className}`}>
+      {/* <div className="max-w-7xl m-auto">{children}</div> */}
+      {children}
     </section>
   );
 };

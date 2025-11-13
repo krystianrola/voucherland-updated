@@ -11,7 +11,7 @@ interface MobileHeaderProps {
 
 const MobileHeader: FC<MobileHeaderProps> = ({ onClose, isLoggedIn }) => {
   return createPortal(
-    <nav className="absolute top-0 left-0 w-full h-dvh flex flex-col justify-between p-3 bg-white lg:hidden ">
+    <nav className="absolute z-[100] top-0 left-0 w-full h-dvh flex flex-col justify-between p-3 bg-white lg:hidden">
       <LuX className="w-8 h-8 place-self-end" onClick={onClose} />
 
       <Menu />
