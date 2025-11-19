@@ -10,7 +10,7 @@ interface VoucherCardProps {
 
 const VoucherCard: FC<VoucherCardProps> = ({ voucher }) => {
   return (
-    <div className="relative min-h-[330px] max-w-[17rem] overflow-hidden flex flex-col rounded-lg bg-block3 border border-solid border-block">
+    <div className="relative min-h-[330px] max-w-[17rem] overflow-hidden flex flex-col rounded-lg bg-block2 border border-solid border-block">
       <Discount
         type={DiscountTypes.BuyOneGetOne}
         text="2+1"
