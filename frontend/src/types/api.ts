@@ -7,3 +7,12 @@ import { Voucher } from "../types";
 export type VoucherResponse = {
   public_vouchers: Voucher[];
 };
+
+export type LoginResponse = {
+  token: string;
+};
+
+export type LoginCredentials = {
+  email: string;
+  password: string;
+};
