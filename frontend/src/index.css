@@ -3,6 +3,7 @@
 
 @theme {
   --color-main: #ffba08;
+  --color-main-hover: #eeab00;
   --color-second: #e9ecef;
   --color-dark: #1d1d1d;
   --color-light: #ffffff;
@@ -22,6 +23,9 @@
   --color-admin_green: #0ca669;
   --color-admin_red: #db4437;
   --color-admin_voucher: #f8f8f8;
+
+  --color-disabled: #bababa;
+  --color-disabled-text: #949494;
 
   --text-tiny: 13px;
 
