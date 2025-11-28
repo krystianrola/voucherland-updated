@@ -29,7 +29,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: "1440px", padding: "20px" }}>
+      <div className="max-w-[1440px] p-0 lg:p-[20px]">
         <AuthProvider>
           <MemoryRouter>
             <Story />

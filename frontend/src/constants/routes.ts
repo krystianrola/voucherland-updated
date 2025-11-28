@@ -27,7 +27,7 @@ const ROUTE = {
   ADMIN_ADMINS: "/admin/admins",
 
   ACCESS_DENIED: "/access_denied",
-  NOT_FOUND: "/not_found",
+  NOT_FOUND: "/page-not-found",
 };
 
 export default ROUTE;

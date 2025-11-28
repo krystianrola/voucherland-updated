@@ -1,8 +1,8 @@
-import { Navigate, Route, Routes } from "react-router";
+import { Navigate, Outlet, Route, Routes } from "react-router";
 import ProtectedRoute from "./ProtectedRoute";
 import ROUTE from "@/constants/routes";
 import { Articles, Contact, Homepage, Login, NotFound, Registration, Vouchers } from "@/views";
-import { AdminPage } from "@/views/admin/admin";
+import { AdminPage } from "@/views/admin/Admin";
 import { AccountPage } from "@/views/account/Account";
 
 const Router = () => {
@@ -16,23 +16,21 @@ const Router = () => {
       <Route path={ROUTE.LOGIN} element={<Login />} />
       <Route path={ROUTE.REGISTER} element={<Registration />} />
 
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminPage />
-          </ProtectedRoute>
-        }
-      />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/admin" element={<Outlet />}>
+          <Route index element={<AdminPage id="home" />} />
+          <Route path="other" element={<AdminPage id="other page" />} />
+        </Route>
+      </Route>
 
-      <Route
+      {/* <Route
         path="/admin/account"
         element={
           <ProtectedRoute>
             <AccountPage />
           </ProtectedRoute>
         }
-      />
+      /> */}
 
       <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
       <Route path={"/*"} element={<Navigate to={ROUTE.NOT_FOUND} />} />

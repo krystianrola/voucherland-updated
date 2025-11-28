@@ -8,6 +8,7 @@ const Menu: FC = () => {
       <MenuItem text="Vouchers" route={ROUTE.VOUCHERS} />
       <MenuItem text="Articles" route={ROUTE.ARTICLES} />
       <MenuItem text="Contact" route={ROUTE.CONTACT} />
+      <MenuItem text="Admin" route={ROUTE.ADMIN} />
     </ul>
   );
 };

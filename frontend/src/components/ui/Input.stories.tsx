@@ -10,8 +10,7 @@ export default meta;
 
 export const Input: StoryObj<typeof InputComponent> = {
   args: {
-    error: false,
-    error_msg: "validation error message",
+    error: { type: "", message: "error message" },
     placeholder: "field",
   },
 };

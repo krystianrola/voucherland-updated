@@ -9,7 +9,7 @@ export type VoucherResponse = {
 };
 
 export type LoginResponse = {
-  token: string;
+  access_token: string;
 };
 
 export type LoginCredentials = {

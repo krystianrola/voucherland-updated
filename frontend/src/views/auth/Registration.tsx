@@ -84,7 +84,15 @@ const Registration: FC = () => {
                 className="w-full mb-5"
               />
             </form>
-            <Button variant={ButtonVariant.Tertiary} text="go back" className=" w-full" />
+            <Button
+              variant={ButtonVariant.Tertiary}
+              text="go back"
+              className=" w-full"
+              onClick={() => {
+                if (window.history.length < 1) navigate(ROUTE.HOME);
+                navigate(-1);
+              }}
+            />
           </div>
 
           <div className="w-full flex flex-col gap-1 items-center">

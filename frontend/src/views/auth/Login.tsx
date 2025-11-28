@@ -1,8 +1,8 @@
-import type { FC } from "react";
+import { useLayoutEffect, type FC } from "react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { ButtonVariant } from "@/types";
-import { useNavigate } from "react-router";
+import { redirect, useNavigate } from "react-router";
 import { useAuth } from "@/hooks/useAuth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ROUTE from "@/constants/routes";
@@ -11,17 +11,25 @@ import { LoginCredentials } from "@/types/api";
 
 const Login: FC = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
-
+  const { login, isLoading, authToken } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<LoginCredentials>({ mode: "onChange" });
 
+  useLayoutEffect(() => {
+    console.log(authToken);
+    if (authToken) navigate(ROUTE.HOME);
+  }, [authToken]);
+
   const onSubmitHandler: SubmitHandler<LoginCredentials> = (data) => {
-    // login(data);
-    console.log(data);
+    login({
+      email: "regular.user@voucherland.com",
+      password: "iamuser",
+    });
+
+    navigate(ROUTE.HOME);
   };
 
   return (
@@ -62,7 +70,7 @@ const Login: FC = () => {
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
-                    value: 8,
+                    value: 1,
                     message: "Password must have at least 8 characters",
                   },
                 })}
@@ -73,14 +81,22 @@ const Login: FC = () => {
               </div>
 
               <Button
-                text="login"
+                text={`${isLoading ? "loading" : "login"}`}
                 type="submit"
-                disabled={!isValid}
+                // disabled={!isValid}
                 aria-label="submit-login"
                 className="w-full mb-5"
               />
             </form>
-            <Button variant={ButtonVariant.Tertiary} text="go back" className=" w-full" />
+            <Button
+              variant={ButtonVariant.Tertiary}
+              text="go back"
+              className=" w-full"
+              onClick={() => {
+                if (window.history.length < 1) navigate(ROUTE.HOME);
+                navigate(-1);
+              }}
+            />
           </div>
 
           <div className="w-full flex flex-col gap-1 items-center">

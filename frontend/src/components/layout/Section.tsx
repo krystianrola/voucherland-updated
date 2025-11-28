@@ -7,7 +7,7 @@ interface SectionProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 const Section: FC<SectionProps> = ({ dark = false, children, className }) => {
   return (
-    <section className={`max-w-[1440px] ${dark ? "bg-dark" : "bg-light"} ${className}`}>
+    <section className={`max-w-[1440px] mx-auto ${dark ? "bg-dark" : "bg-light"} ${className}`}>
       {/* <div className="max-w-7xl m-auto">{children}</div> */}
       {children}
     </section>
