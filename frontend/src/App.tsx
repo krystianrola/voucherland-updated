@@ -1,8 +1,13 @@
 import { useEffect } from "react";
 import { Router } from "./router";
+import { useAuthStore } from "./store/AuthStore";
 
 function App() {
-  // set up useffect to login in use automatically
+  const initialize = useAuthStore((store) => store.initialize);
+
+  useEffect(() => {
+    initialize();
+  }, []);
 
   return (
     <div>

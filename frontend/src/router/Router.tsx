@@ -1,9 +1,20 @@
 import { Navigate, Outlet, Route, Routes } from "react-router";
 import ProtectedRoute from "./ProtectedRoute";
 import ROUTE from "@/constants/routes";
-import { Articles, Contact, Homepage, Login, NotFound, Registration, Vouchers } from "@/views";
+import {
+  AccessDenied,
+  Articles,
+  Contact,
+  Homepage,
+  Login,
+  NotFound,
+  Registration,
+  Vouchers,
+} from "@/views";
 import { AdminPage } from "@/views/admin/Admin";
 import { AccountPage } from "@/views/account/Account";
+import { UserRole } from "@/types";
+import RoleProtectedRoute from "./RoleprotectedRoute";
 
 const Router = () => {
   return (
@@ -17,22 +28,20 @@ const Router = () => {
       <Route path={ROUTE.REGISTER} element={<Registration />} />
 
       <Route element={<ProtectedRoute />}>
-        <Route path="/admin" element={<Outlet />}>
-          <Route index element={<AdminPage id="home" />} />
-          <Route path="other" element={<AdminPage id="other page" />} />
+        <Route path="/account" element={<Outlet />}>
+          <Route index element={<AccountPage />} />
+        </Route>
+
+        <Route element={<RoleProtectedRoute roles={[UserRole.Admin]} />}>
+          <Route path="/admin" element={<Outlet />}>
+            <Route index element={<AdminPage id="home" />} />
+            <Route path="other" element={<AdminPage id="other page" />} />
+          </Route>
         </Route>
       </Route>
 
-      {/* <Route
-        path="/admin/account"
-        element={
-          <ProtectedRoute>
-            <AccountPage />
-          </ProtectedRoute>
-        }
-      /> */}
-
       <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
+      <Route path={ROUTE.ACCESS_DENIED} element={<AccessDenied />} />
       <Route path={"/*"} element={<Navigate to={ROUTE.NOT_FOUND} />} />
     </Routes>
   );

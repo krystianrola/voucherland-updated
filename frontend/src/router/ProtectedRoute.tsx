@@ -1,16 +1,14 @@
-import type { FC, JSX } from "react";
+import type { FC } from "react";
 import { Navigate, Outlet } from "react-router";
 import ROUTE from "@/constants/routes";
+import { useAuthStore } from "@/store/AuthStore";
 
-interface ProtectedRouteProps {
-  children?: JSX.Element;
-  auth?: boolean;
-}
+interface ProtectedRouteProps {}
 
-const ProtectedRoute: FC<ProtectedRouteProps> = ({ children, auth = false }) => {
-  if (!auth) return <Navigate to={ROUTE.LOGIN} />;
+const ProtectedRoute: FC<ProtectedRouteProps> = () => {
+  const isAuthenticated = useAuthStore((store) => !!store.token);
 
-  // admin access
+  if (!isAuthenticated) return <Navigate to={ROUTE.LOGIN} replace />;
 
   return <Outlet />;
 };
