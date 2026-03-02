@@ -3,6 +3,7 @@ import { ButtonVariant } from "../../types";
 import Section from "../layout/Section";
 import { Button } from "../ui/Button";
 import ROUTE from "../../constants/routes";
+import { useAuthStore } from "@/store/AuthStore";
 
 const HomeHero = () => {
   const navigate = useNavigate();

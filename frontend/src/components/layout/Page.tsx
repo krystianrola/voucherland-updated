@@ -18,7 +18,7 @@ const Page: FC<PageProps> = ({ children, className, ...props }) => {
       {/* <main className={`${className} min-h-dvh w-full max-w-[1440px] m-auto`} {...props}>
         {children}
       </main> */}
-      <main>{children}</main>
+      <main className={`${className}`}>{children}</main>
       <Footer />
     </>
   );

@@ -23,10 +23,10 @@ const StatisticItem: FC<StatisticItemProps> = ({ name, value }) => {
       ref={ref}
     >
       <p className="text-sm font-bold text-description">{name}</p>
-      <p className="flex flex-row gap-1 justify-center items-center text-6xl leading-4 font-extrabold text-dark">
-        <animated.div>
+      <p className="flex flex-row gap-1 justify-center items-center text-8xl leading-16 font-extrabold text-dark">
+        <animated.span>
           {animatedNum.num.to((x) => (x % 1 === 0 ? x.toFixed(0) : x.toFixed(1)))}
-        </animated.div>
+        </animated.span>
         {unit}
       </p>
     </div>

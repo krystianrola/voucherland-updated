@@ -11,14 +11,23 @@ interface CTABannerProps {
   button: string;
 }
 
-const CTABanner: FC<CTABannerProps> = ({ label, title, description, button }) => {
+const CTABanner: FC<CTABannerProps> = ({
+  label,
+  title,
+  description,
+  button,
+}) => {
   const navigate = useNavigate();
 
   return (
     <section>
       <div className="flex flex-col w-full gap-0 lg:flex-row">
         <div className="w-full overflow-hidden rounded-t-lg lg:w-1/2 lg:rounded-l-lg lg:rounded-tr-none">
-          <img src="./images/banner.png" alt="banner" className="w-full h-auto object-fill" />
+          <img
+            src="./images/banner.png"
+            alt="banner"
+            className="w-full h-auto object-fill"
+          />
         </div>
         <div className="overflow-hidden w-full h-auto flex flex-col gap-5 justify-center rounded-b-lg px-6 py-[50px] lg:p-[50px] bg-light lg:w-1/2 lg:rounded-bl-none lg:rounded-r-lg">
           <p className="text-sm text-tag font-bold">{label}</p>

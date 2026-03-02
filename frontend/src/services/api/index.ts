@@ -1,12 +1,16 @@
-import { User, Voucher } from "../../types";
-import { LoginCredentials, LoginResponse, VoucherResponse } from "../../types/api";
+import { User, Voucher, VoucherStatus } from "../../types";
+import { LoginCredentials, LoginResponse, DataResponse, VoucherParams } from "../../types/api";
 import { authInstance, baseInstance } from "./instance";
 
 /**
  * Public requests
  */
-function getVouchers() {
-  return baseInstance.get<VoucherResponse>("/vouchers/public");
+function getVouchers(params: VoucherParams = { status: VoucherStatus.Public }) {
+  // return baseInstance.get<VoucherResponse>("/vouchers");
+  // test
+  return baseInstance.get<DataResponse<Voucher>>("/test", {
+    params,
+  });
 }
 
 function login(credentials: LoginCredentials) {

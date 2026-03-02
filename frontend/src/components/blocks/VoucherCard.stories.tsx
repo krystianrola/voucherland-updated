@@ -13,6 +13,7 @@ export const VoucherCard: StoryObj<typeof VoucherCardComponent> = {
     voucher: {
       name: "voucher",
       description: "voucher description",
+      status: "public",
     },
   },
 };
@@ -23,15 +24,18 @@ export const VoucherCardGroup: StoryObj<typeof VoucherCardComponent> = {
       {
         name: "Cucumber",
         description: "voucher description",
+        status: "public",
       },
       {
         name: "Cucumber",
         description:
           "voucher description voucher description voucher description voucher description",
+        status: "public",
       },
       {
         name: "Cucumber",
         description: "voucher description",
+        status: "public",
       },
     ];
 

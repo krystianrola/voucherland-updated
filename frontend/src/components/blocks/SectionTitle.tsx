@@ -10,7 +10,7 @@ interface SectionTitleProps {
 
 const SectionTitle: FC<SectionTitleProps> = ({ title, icon, dark, button_text }) => {
   return (
-    <div className={`flex flex-row justify-between items-center`}>
+    <div className={`flex flex-row justify-between items-center mb-5`}>
       <h2
         className={`flex gap-3 items-center text-[28px] font-semibold leading-7 
           ${dark && "text-text"}
