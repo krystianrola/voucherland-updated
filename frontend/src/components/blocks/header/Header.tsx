@@ -6,11 +6,13 @@ import ROUTE from "../../../constants/routes";
 import { Menu } from "../Menu";
 import ActionButtons from "./ActionButtons";
 import useScrollBlock from "../../../hooks/useScrollBlock";
+import { useAuthStore } from "@/store/AuthStore";
 
 const Header: FC = () => {
   const navigate = useNavigate();
   const [disableScroll] = useScrollBlock();
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const { loading } = useAuthStore();
 
   return (
     <header className="sticky z-40 w-full h-13 lg:h-16 top-0 flex p-3 border-b border-solid border-main bg-dark">
@@ -36,7 +38,7 @@ const Header: FC = () => {
         </nav>
 
         <div className="hidden lg:block">
-          <ActionButtons isLoggedIn={false} onClose={() => setOpenMenu(true)} />
+          <ActionButtons onClose={() => setOpenMenu(true)} />
         </div>
       </div>
 

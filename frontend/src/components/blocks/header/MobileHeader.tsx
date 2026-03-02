@@ -17,10 +17,10 @@ const MobileHeader: FC<MobileHeaderProps> = ({ onClose, isLoggedIn }) => {
       <Menu />
 
       <div className="flex flex-col gap-4 pt-4 border-t border-solid border-main">
-        {<ActionButtons isLoggedIn={isLoggedIn} onClose={onClose} />}
+        {<ActionButtons onClose={onClose} />}
       </div>
     </nav>,
-    document.getElementById("menu")!
+    document.getElementById("menu")!,
   );
 };
 

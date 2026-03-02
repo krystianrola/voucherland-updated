@@ -1,35 +1,35 @@
-import { useLayoutEffect, type FC } from "react";
+import type { FC } from "react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { ButtonVariant } from "@/types";
-import { redirect, useNavigate } from "react-router";
-import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ROUTE from "@/constants/routes";
 import Section from "@/components/layout/Section";
 import { LoginCredentials } from "@/types/api";
+import { useAuthStore } from "@/store/AuthStore";
 
 const Login: FC = () => {
   const navigate = useNavigate();
-  const { login, isLoading, authToken } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<LoginCredentials>({ mode: "onChange" });
+  const { loading, login } = useAuthStore();
 
-  useLayoutEffect(() => {
-    console.log(authToken);
-    if (authToken) navigate(ROUTE.HOME);
-  }, [authToken]);
+  const onSubmitHandler: SubmitHandler<LoginCredentials> = async (data) => {
+    try {
+      await login(data);
 
-  const onSubmitHandler: SubmitHandler<LoginCredentials> = (data) => {
-    login({
-      email: "regular.user@voucherland.com",
-      password: "iamuser",
-    });
+      console.log("After login - success");
 
-    navigate(ROUTE.HOME);
+      navigate(ROUTE.HOME, { replace: true });
+    } catch (error) {
+      console.error("err login: " + error); // for future error handling
+    }
+
+    console.log("Submit handler finished");
   };
 
   return (
@@ -52,6 +52,7 @@ const Login: FC = () => {
               <Input
                 type="email"
                 placeholder="email"
+                autoComplete="email"
                 error={errors.email}
                 {...register("email", {
                   required: "Email is required",
@@ -66,6 +67,7 @@ const Login: FC = () => {
               <Input
                 type="password"
                 placeholder="password"
+                autoComplete="current-password"
                 error={errors.password}
                 {...register("password", {
                   required: "Password is required",
@@ -81,9 +83,9 @@ const Login: FC = () => {
               </div>
 
               <Button
-                text={`${isLoading ? "loading" : "login"}`}
+                text={`${loading ? "login" : "loading"}`}
                 type="submit"
-                // disabled={!isValid}
+                disabled={!isValid}
                 aria-label="submit-login"
                 className="w-full mb-5"
               />
@@ -92,10 +94,7 @@ const Login: FC = () => {
               variant={ButtonVariant.Tertiary}
               text="go back"
               className=" w-full"
-              onClick={() => {
-                if (window.history.length < 1) navigate(ROUTE.HOME);
-                navigate(-1);
-              }}
+              onClick={() => navigate(ROUTE.HOME)}
             />
           </div>
 
