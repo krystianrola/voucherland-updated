@@ -1,17 +1,26 @@
-import type { BaseHTMLAttributes, FC, JSX } from "react";
+import type { BaseHTMLAttributes, FC, ReactNode } from "react";
+
+export type ColorVariant = "light" | "dark" | "main" | "grey";
 
 interface SectionProps extends BaseHTMLAttributes<HTMLDivElement> {
-  dark?: true;
-  children: JSX.Element | JSX.Element[];
+  color_variant?: ColorVariant;
+  children: ReactNode;
 }
 
-const Section: FC<SectionProps> = ({ dark = false, children, className }) => {
+const Section: FC<SectionProps> = ({ color_variant = "light", children, className }) => {
+  const colorVariant: Record<ColorVariant, string> = {
+    light: "bg-white",
+    dark: "bg-dark",
+    main: "bg-main",
+    grey: "bg-block2",
+  };
+
   return (
-    <section
-      className={`max-w-[1440px] mx-auto px-3 py-20 ${dark ? "bg-dark" : "bg-light"} ${className}`}
-    >
-      {/* <div className="max-w-7xl m-auto">{children}</div> */}
-      {children}
+    <section className={` ${colorVariant[color_variant]}`}>
+      <div className={`max-w-[1440px] mx-auto px-3 py-20 m-auto lg:px-0 ${className}`}>
+        {children}
+      </div>
+      {/* {children} */}
     </section>
   );
 };

@@ -22,10 +22,12 @@ const Homepage: FC<HomepageProp> = () => {
         </div>
       </Section> */}
 
-      <Section className="h-svh lg:h-fit flex flex-col lg:flex-row justify-between lg:px-20 ">
-        <StatisticItem name="#vouchersUsed" value={22000} />
-        <StatisticItem name="#collaborations" value={1300} />
-        <StatisticItem name="#activeUsers" value={985} />
+      <Section>
+        <div className="h-svh lg:h-fit flex flex-col lg:flex-row justify-between lg:px-20">
+          <StatisticItem name="#vouchersUsed" value={22000} />
+          <StatisticItem name="#collaborations" value={1300} />
+          <StatisticItem name="#activeUsers" value={985} />
+        </div>
       </Section>
     </Page>
   );

@@ -3,14 +3,16 @@ import { ButtonVariant } from "../../types";
 import Section from "../layout/Section";
 import { Button } from "../ui/Button";
 import ROUTE from "../../constants/routes";
-import { useAuthStore } from "@/store/AuthStore";
 
 const HomeHero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full min-h-svh flex flex-col justify-center items-center gap-15 p-3 bg-dark lg:flex-row lg:gap-5">
-      <Section className="flex flex-col justify-center items-center gap-15 lg:flex-row bg-transparent">
+    <div className="relative w-full min-h-svh flex flex-col justify-center items-center gap-15 p-3 bg-dark lg:flex-row lg:gap-5">
+      <Section
+        color_variant="dark"
+        className="flex flex-col justify-center items-center gap-15 lg:flex-row bg-transparent"
+      >
         <div className="max-h-1/2 flex flex-col items-center gap-4 text-center justify-center lg:flex-1 lg:items-start lg:text-left">
           <h1 className="text-4xl text-light font-semibold lg:text-6xl">
             Get your voucher now and <span className="text-main">be ahead of the crowd.</span>
@@ -37,7 +39,7 @@ const HomeHero = () => {
           />
         </div>
       </Section>
-    </section>
+    </div>
   );
 };
 

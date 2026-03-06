@@ -1,7 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
 import { MemoryRouter } from "react-router";
-import { AuthProvider } from "../src/context/AuthContext";
 
 const preview: Preview = {
   parameters: {
@@ -30,11 +29,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <div className="max-w-[1440px] p-0 lg:p-[20px]">
-        <AuthProvider>
-          <MemoryRouter>
-            <Story />
-          </MemoryRouter>
-        </AuthProvider>
+        <MemoryRouter>
+          <Story />
+        </MemoryRouter>
       </div>
     ),
   ],

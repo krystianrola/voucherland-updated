@@ -26,6 +26,12 @@ export const UserRole = {
   Mod: "modarator",
 };
 
+export type TButtonVariant = (typeof ButtonVariant)[keyof typeof ButtonVariant];
+export type TDiscountType = (typeof DiscountTypes)[keyof typeof DiscountTypes];
+export type TRoute = (typeof ROUTE)[keyof typeof ROUTE];
+export type TVoucherStatus = (typeof VoucherStatus)[keyof typeof VoucherStatus];
+export type TUserRole = (typeof UserRole)[keyof typeof UserRole];
+
 export type Voucher = {
   id?: number;
   name: string;
@@ -39,12 +45,6 @@ export type Voucher = {
   expiry?: string;
   status: TVoucherStatus;
 };
-
-export type TButtonVariant = (typeof ButtonVariant)[keyof typeof ButtonVariant];
-export type TDiscountType = (typeof DiscountTypes)[keyof typeof DiscountTypes];
-export type TRoute = (typeof ROUTE)[keyof typeof ROUTE];
-export type TVoucherStatus = (typeof VoucherStatus)[keyof typeof VoucherStatus];
-export type TUserRole = (typeof UserRole)[keyof typeof UserRole];
 
 export type User = {
   id?: string;

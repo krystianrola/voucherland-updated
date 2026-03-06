@@ -12,7 +12,7 @@ import {
   Vouchers,
 } from "@/views";
 import { AdminPage } from "@/views/admin/Admin";
-import { AccountPage } from "@/views/account/Account";
+import { Account } from "@/views/account/Account";
 import { UserRole } from "@/types";
 import RoleProtectedRoute from "./RoleprotectedRoute";
 
@@ -29,7 +29,7 @@ const Router = () => {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/account" element={<Outlet />}>
-          <Route index element={<AccountPage />} />
+          <Route index element={<Account />} />
         </Route>
 
         <Route element={<RoleProtectedRoute roles={[UserRole.Admin]} />}>

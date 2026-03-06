@@ -9,7 +9,7 @@ const meta: Meta<typeof TabsComponent.Root> = {
 };
 export default meta;
 
-export const Tabs: StoryObj<typeof TabsComponent.Root> = {
+export const TabVariant: StoryObj<typeof TabsComponent.Root> = {
   render: () => (
     <TabsComponent.Root defaultValue="tab-1">
       <TabsComponent.List>
@@ -17,9 +17,24 @@ export const Tabs: StoryObj<typeof TabsComponent.Root> = {
         <TabsComponent.Trigger value="tab-2">Tab 2</TabsComponent.Trigger>
         <TabsComponent.Trigger value="tab-3">Tab 3</TabsComponent.Trigger>
       </TabsComponent.List>
-      <TabsComponent.Content value="tab-1">TAb 1 content</TabsComponent.Content>
-      <TabsComponent.Content value="tab-2">TAb 2 content</TabsComponent.Content>
-      <TabsComponent.Content value="tab-3">TAb 3 content</TabsComponent.Content>
+      <TabsComponent.Content value="tab-1">Tab 1 content</TabsComponent.Content>
+      <TabsComponent.Content value="tab-2">Tab 2 content</TabsComponent.Content>
+      <TabsComponent.Content value="tab-3">Tab 3 content</TabsComponent.Content>
+    </TabsComponent.Root>
+  ),
+};
+
+export const ButtonVariant: StoryObj<typeof TabsComponent.Root> = {
+  render: () => (
+    <TabsComponent.Root defaultValue="tab-1" variant="button">
+      <TabsComponent.List>
+        <TabsComponent.Trigger value="tab-1">Tab 1</TabsComponent.Trigger>
+        <TabsComponent.Trigger value="tab-2">Tab 2</TabsComponent.Trigger>
+        <TabsComponent.Trigger value="tab-3">Tab 3</TabsComponent.Trigger>
+      </TabsComponent.List>
+      <TabsComponent.Content value="tab-1">Tab 1 content</TabsComponent.Content>
+      <TabsComponent.Content value="tab-2">Tab 2 content</TabsComponent.Content>
+      <TabsComponent.Content value="tab-3">Tab 3 content</TabsComponent.Content>
     </TabsComponent.Root>
   ),
 };
@@ -28,13 +43,13 @@ export const TabsExample: StoryObj<typeof TabsComponent.Root> = {
   render: () => (
     <TabsComponent.Root defaultValue="tab-1">
       <TabsComponent.List>
-        <TabsComponent.Trigger value="tab-1" color="admin_green">
+        <TabsComponent.Trigger value="tab-1" color="green">
           <LuLockKeyholeOpen className="w-5 h-5" /> public
         </TabsComponent.Trigger>
-        <TabsComponent.Trigger value="tab-2" color="admin_red">
+        <TabsComponent.Trigger value="tab-2" color="red">
           <LuLockKeyhole className="w-5 h-5" /> private
         </TabsComponent.Trigger>
-        <TabsComponent.Trigger value="tab-3" color="dark">
+        <TabsComponent.Trigger value="tab-3">
           <PiWarningBold className="w-5 h-5" /> expired
         </TabsComponent.Trigger>
       </TabsComponent.List>
