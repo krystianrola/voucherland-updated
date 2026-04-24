@@ -1,7 +1,7 @@
 import { useAuthStore } from "@/store/AuthStore";
 import axios, { AxiosInstance, CreateAxiosDefaults } from "axios";
 
-const BASE_URL = "http://localhost:8000/api";
+const BASE_URL = "http://localhost:8000/";
 
 const baseConfig: CreateAxiosDefaults = {
   baseURL: BASE_URL,

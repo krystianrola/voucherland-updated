@@ -15,12 +15,12 @@ const Homepage: FC<HomepageProp> = () => {
     <Page>
       <HomeHero />
 
-      {/* <Section>
+      <Section>
         <SectionTitle title="Vouchers of the day" />
         <div className="p-1">
           <VoucherSlider />
         </div>
-      </Section> */}
+      </Section>
 
       <Section>
         <div className="h-svh lg:h-fit flex flex-col lg:flex-row justify-between lg:px-20">

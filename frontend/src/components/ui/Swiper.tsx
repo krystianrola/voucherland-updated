@@ -1,9 +1,4 @@
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-import { Swiper as SwiperPrimary, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper as SwiperPrimary, SwiperSlide } from "swiper/react";
 import { Navigation, Scrollbar, EffectFade } from "swiper/modules";
 import { FC, JSX } from "react";
 
@@ -12,8 +7,6 @@ interface SwiperProps {
 }
 
 const Swiper: FC<SwiperProps> = ({ children }) => {
-  const swiper = useSwiper();
-
   return (
     <SwiperPrimary
       slidesPerView="auto"
